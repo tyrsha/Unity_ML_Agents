@@ -11,7 +11,7 @@ from mlagents.envs import UnityEnvironment
 state_size = [84, 84, 3]
 action_size = 5 
 
-load_model = False
+load_model = True
 train_mode = True
 
 batch_size = 32
@@ -39,10 +39,11 @@ date_time = datetime.datetime.now().strftime("%Y%m%d-%H-%M-%S")
 # 유니티 환경 경로 
 game = "Sokoban"
 env_name = "../env/" + game + "/Windows/" + game
+version = 1
 
 # 모델 저장 및 불러오기 경로
-save_path = "../saved_models/" + game + "/" + date_time + "_DQN"
-load_path = "../saved_models/" + game + "/20190828-10-42-45_DQN/model/model"
+save_path = "../saved_models/" + game + "/" + str(version) + "_DQN"
+load_path = "../saved_models/" + game + "/" + str(version) + "/model/model"
 
 # Model 클래스 -> 함성곱 신경망 정의 및 손실함수 설정, 네트워크 최적화 알고리즘 결정
 class Model():
