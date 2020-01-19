@@ -7,11 +7,13 @@ import tensorflow as tf
 from collections import deque
 from mlagents.envs import UnityEnvironment
 
+tf.logging.set_verbosity(tf.logging.ERROR)
+
 # DQN을 위한 파라미터 값 세팅 
 state_size = [84, 84, 3]
 action_size = 5 
 
-load_model = True
+load_model = False
 train_mode = True
 
 batch_size = 32
@@ -19,22 +21,20 @@ mem_maxlen = 50000
 discount_factor = 0.9
 learning_rate = 0.00025
 
-run_episode = 25000
+run_episode = 10000
 test_episode = 1000
 
 start_train_episode = 1000
 
 target_update_step = 10000
-print_interval = 100
-save_interval = 5000
+print_interval = 10
+save_interval = 100
 
 epsilon_init = 1.0
 epsilon_min = 0.1
 
 # 소코반 환경 설정 (게임판 크기=5, 초록색 +의 수=1, 박스의 수=1)
 env_config = {"gridSize": 5, "numGoals": 1, "numBoxes": 1}
-
-date_time = datetime.datetime.now().strftime("%Y%m%d-%H-%M-%S")
 
 # 유니티 환경 경로 
 game = "Sokoban"
